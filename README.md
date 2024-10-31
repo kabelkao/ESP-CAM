@@ -28,6 +28,17 @@
             float vlhkost = DhtSensor.getHumidity();
 
             String serverPath = serverName + "teplota=" + teplota + "&vlhkost=" + vlhkost + "&tempMCU=" + tempMCU;
+
+            // Výpis na serial pro kontrolu
+            Serial.print("Externí teplota = ");
+            Serial.print(teplota);
+            Serial.print(" °C, ");
+            Serial.print("Externí vlhkost = ");
+            Serial.print(vlhkost);
+            Serial.print(" %, ");
+            Serial.print("Teplota MCU = ");
+            Serial.print(tempMCU);
+            Serial.println(" °C.");
             
             // zacatek http spojeni
             http.begin(serverPath.c_str());
